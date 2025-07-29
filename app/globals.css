@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@plugin "@iconify/tailwind4" {
+  prefixes: mdi-light, vscode-icons, fa-solid;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +14,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pacifico: var(--font-geist-pac);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +28,39 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.cards {
+  transition: 0.5s;
+}
+
+.cards:hover {
+  transform: scale(1.01);
+  transition: 0.5s;
+}
+
+.cards:active {
+  transform: scale(0.95);
+  transition: 0.5s;
+}
+
+.message {
+  background: rgb(0 0 0 / 25%);
+  /*margin: 0.5rem;*/
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 3.5rem;
+  max-width: 460px;
+  cursor: pointer;
+}
+
+.des {
+  display: flex;
+  justify-content: space-between;
+}
+
+.des-title {
+  margin: 1rem 1rem;
+  line-height: 2rem;
+  margin-right: auto;
 }
