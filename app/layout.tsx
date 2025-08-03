@@ -19,8 +19,8 @@ const geistPac = Pacifico({
 });
 
 export const metadata: Metadata = {
-    title: "HZB",
-    description: "this is a hzb website",
+    title: "hzb的个人主页",
+    description: "hzb.gg的个人主页",
 };
 
 export default function RootLayout({
