@@ -19,7 +19,7 @@ const geistPac = Pacifico({
 });
 
 export const metadata: Metadata = {
-    title: "hzb的个人主页",
+    title: "hzb个人主页",
     description: "hzb.gg的个人主页",
 };
 

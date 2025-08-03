@@ -1,6 +1,8 @@
 "use client";
 import { useRef, useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
+import "./style.css"; // Assuming you have a CSS file for styles
 
 export default function CubePage() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -23,145 +25,17 @@ export default function CubePage() {
                     <div className="box">
                         {["front", "back", "left", "right", "top", "bottom"].map((side, i) => (
                             <div key={i} className={`out-div out-${side}`}>
-                                <img src={`/assets/img/zyy${i + 1}.jpg`} alt={`out-${side}`} />
+                                <Image src={`/assets/img/zyy${i + 1}.jpg`} alt={`out-${side}`} width={200} height={200} style={{ objectFit: "cover" }} />
+                                {/* <img src={`/assets/img/zyy${i + 1}.jpg`} alt={`out-${side}`} /> */}
                             </div>
                         ))}
                         {["front", "back", "left", "right", "top", "bottom"].map((side, i) => (
                             <div key={i} className={`in-div in-${side}`}>
-                                <img src={`/assets/img/zyy${i + 1}.jpg`} alt={`in-${side}`} />
+                                <Image src={`/assets/img/zyy${i + 1}.jpg`} alt={`in-${side}`} width={100} height={100} style={{ objectFit: "fill" }} />
+                                {/* <img src={`/assets/img/zyy${i + 1}.jpg`} alt={`in-${side}`} /> */}
                             </div>
                         ))}
                     </div>
-
-                    <style jsx>
-                        {`
-                            * {
-                                margin: 0;
-                                padding: 0;
-                            }
-
-                            body,
-                            html,
-                            #__next {
-                                width: 100vw;
-                                height: 100vh;
-                                overflow: hidden;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                background: radial-gradient(circle at center, #333, #000);
-                            }
-
-                            .container {
-                                width: 500px;
-                                height: 500px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                            }
-
-                            .out-div img {
-                                width: 200px;
-                                height: 200px;
-                                object-fit: cover;
-                            }
-
-                            .in-div img {
-                                width: 100px;
-                                height: 100px;
-                                object-fit: fill;
-                            }
-
-                            .box {
-                                position: absolute;
-                                width: 200px;
-                                height: 200px;
-                                transform-style: preserve-3d;
-                                animation: rotateAnimate 10s linear infinite;
-                            }
-
-                            .out-div {
-                                width: 200px;
-                                height: 200px;
-                                position: absolute;
-                                transition: transform 1s ease-in;
-                            }
-
-                            .out-front {
-                                transform: translateZ(100px);
-                            }
-                            .out-back {
-                                transform: translateZ(-100px) rotateY(180deg);
-                            }
-                            .out-left {
-                                transform: translateX(-100px) rotateY(-90deg);
-                            }
-                            .out-right {
-                                transform: translateX(100px) rotateY(90deg);
-                            }
-                            .out-top {
-                                transform: translateY(-100px) rotateX(90deg);
-                            }
-                            .out-bottom {
-                                transform: translateY(100px) rotateX(-90deg);
-                            }
-
-                            .container:hover .out-front {
-                                transform: translateZ(200px);
-                            }
-                            .container:hover .out-back {
-                                transform: translateZ(-200px) rotateY(180deg);
-                            }
-                            .container:hover .out-left {
-                                transform: translateX(-200px) rotateY(-90deg);
-                            }
-                            .container:hover .out-right {
-                                transform: translateX(200px) rotateY(90deg);
-                            }
-                            .container:hover .out-top {
-                                transform: translateY(-200px) rotateX(90deg);
-                            }
-                            .container:hover .out-bottom {
-                                transform: translateY(200px) rotateX(-90deg);
-                            }
-
-                            .in-div {
-                                margin-left: 50px;
-                                margin-top: 50px;
-                                width: 100px;
-                                height: 100px;
-                                position: absolute;
-                            }
-
-                            .in-front {
-                                transform: translateZ(50px);
-                            }
-                            .in-back {
-                                transform: translateZ(-50px) rotateY(180deg);
-                            }
-                            .in-left {
-                                transform: translateX(-50px) rotateY(-90deg);
-                            }
-                            .in-right {
-                                transform: translateX(50px) rotateY(90deg);
-                            }
-                            .in-top {
-                                transform: translateY(-50px) rotateX(90deg);
-                            }
-                            .in-bottom {
-                                transform: translateY(50px) rotateX(-90deg);
-                            }
-
-                            @keyframes rotateAnimate {
-                                0% {
-                                    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-                                }
-                                100% {
-                                    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-                                }
-                            }
-                        `}
-                    </style>
                 </div>
             </div>
         </>
