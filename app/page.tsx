@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect, permanentRedirect } from "next/navigation";
 
 export default async function Home() {
     const h = await headers(); // ✅
@@ -7,7 +7,7 @@ export default async function Home() {
     const userHost = h.get("host") || ""; // ✅ 获取请求头中的 host
     const isTX = /micromessenger/.test(userAgent); // ✅ 判断是否为腾讯
     if (userHost.includes("h2b.cn") && !isTX) {
-        redirect("https://hzb.gg");
+        permanentRedirect("https://hzb.gg");
     } else if (isTX) {
         redirect("https://h2b.cn");
     }
