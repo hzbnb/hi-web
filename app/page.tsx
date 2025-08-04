@@ -1,17 +1,4 @@
-import { headers } from "next/headers";
-import { redirect, permanentRedirect } from "next/navigation";
-
 export default async function Home() {
-    const h = await headers(); // ✅
-    const userAgent = h.get("user-agent")?.toLocaleLowerCase() || ""; // ✅ 获取请求头中的 user-agent
-    const userHost = h.get("host") || ""; // ✅ 获取请求头中的 host
-    const isTX = /micromessenger/.test(userAgent); // ✅ 判断是否为腾讯
-    if (userHost.includes("h2b.cn") && !isTX) {
-        permanentRedirect("https://hzb.gg");
-    } else if (isTX) {
-        redirect("https://h2b.cn");
-    }
-
     return (
         <div className="bg-[url('/bg/background1.webp')] bg-center bg-no-repeat bg-fixed bg-cover">
             <div className="bg-black/20 font-sans grid grid-rows-[20px_1fr_20px] items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
